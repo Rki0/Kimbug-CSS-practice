@@ -1,0 +1,596 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+body {
+  font-family: "DM Sans", sans-serif;
+}
+
+/* Reset CSS */
+/* 작업할 때 자주 사용되는 효과 제거를 미리 사용 */
+a {
+  text-decoration: none;
+  /* 부모의 color를 상속받아라 */
+  color: inherit;
+}
+
+/* form 관련 태그는 font-family가 안 먹힐 때가 있으므로 따로 또 명시해주자 */
+button,
+input,
+textarea {
+  font-family: "DM Sans", sans-serif;
+  /* 이 태그들은 글자 크기가 기본적으로 작아서 일단 잘 보이게 설정 */
+  font-size: 16px;
+}
+
+/* 클릭했을 때 나오는 강조 테두리 없애기 */
+button:focus,
+button:active,
+input:focus,
+input:active,
+textarea:focus,
+textarea:active {
+  box-shadow: none;
+  outline: none;
+}
+
+ul,
+ol,
+li {
+  list-style-type: none;
+  padding-left: 0;
+  margin-left: 0;
+}
+
+/* 본문에 쓰이는 텍스트는 같은 경우가 많아서 미리 확인하고 같다면 미리 설정해주자 */
+p {
+  font-size: 16px;
+  line-height: 1.5;
+  color: #2b292d;
+  letter-spacing: -0.01em;
+}
+
+h1 {
+  color: #2b292d;
+}
+
+/* >= 768px - Desktop에 적용될 공통 스타일*/
+@media screen and (min-width: 768px) {
+  /* Reset CSS */
+  p {
+    font-size: 22px;
+    line-height: 1.3636363636;
+  }
+}
+
+/* Custom Grid System - Fix container width */
+@media screen and (min-width: 1200px) {
+  .container {
+    max-width: 960px !important;
+  }
+}
+
+/* 작업 시작 */
+/* width 320px에서 시작 */
+/* 1번 파트 */
+.landing {
+  background-color: #fdded8;
+  padding: 154px 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.landing-head-line {
+  font-size: 40px;
+  line-height: 1;
+  font-weight: 700;
+  letter-spacing: -0.05em;
+  margin-bottom: 24px;
+  text-align: center;
+}
+
+.landing-text {
+  line-height: 1.375;
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.landing-a {
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+.landing-apply {
+  padding: 12px 35px;
+  background-color: #3040c4;
+  color: white;
+  font-size: 15px;
+  line-height: 1.6;
+  font-weight: 700;
+  letter-spacing: -0.05em;
+  margin-right: 8px;
+}
+
+.landing-learn {
+  padding: 12px 32px;
+  color: #3040c4;
+  background-color: white;
+  font-size: 15px;
+  line-height: 1.6;
+  font-weight: 700;
+  letter-spacing: -0.05em;
+}
+
+/* 2번 파트 */
+.testimonials {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 80px 15px;
+  background-color: #f4f5f7;
+}
+
+.part2-main {
+  display: block;
+  font-size: 22px;
+  line-height: 1.3636363636;
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  margin-bottom: 16px;
+}
+
+.part2-text {
+  margin-bottom: 40px;
+}
+
+/* 3번 파트 */
+.program {
+  padding: 80px 15px;
+  background-color: #e5e5e5;
+}
+
+.program-name {
+  color: #009b4d;
+  text-transform: capitalize;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.program-head {
+  font-size: 34px;
+  line-height: 1.0588235294;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  margin-bottom: 24px;
+}
+
+.program-explain {
+  margin-bottom: 32px;
+}
+
+.product-img {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 291px;
+  padding-top: 24px;
+  padding-bottom: 32px;
+  margin-bottom: 20px;
+  background: linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.05) 0%,
+      rgba(255, 255, 255, 1e-5) 100%
+    ),
+    #ffffff;
+  border-radius: 8px;
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1), 0px 4px 6px rgba(0, 0, 0, 0.05),
+    inset 0px 1px 0px rgba(255, 255, 255, 0.1);
+}
+
+.product-img img {
+  display: block;
+  height: 195px;
+  margin-bottom: 16px;
+}
+
+/* 4번 파트 */
+.curriculum {
+  padding: 80px 15px;
+}
+
+.curriculum-main {
+  font-weight: 700;
+  color: #0189d1;
+  text-transform: capitalize;
+  margin-bottom: 8px;
+}
+
+.curriculum-head {
+  font-size: 34px;
+  line-height: 1.0588235294;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  margin-bottom: 24px;
+}
+
+.curriculum-first-explain {
+  margin-bottom: 32px;
+}
+
+.curriculum-apply {
+  display: block;
+  width: 140px;
+  padding: 12px 35px;
+  background-color: #3040c4;
+  color: white;
+  font-size: 15px;
+  line-height: 1.6;
+  font-weight: 700;
+  letter-spacing: -0.05em;
+  margin-bottom: 48px;
+  text-align: center;
+}
+
+.curriculum-add-explain {
+  display: block;
+  font-size: 15px;
+  line-height: 1.5333333333;
+}
+
+.upper-curriculm {
+  margin-bottom: 40px;
+}
+
+.curriculum-add-explain span {
+  font-weight: 700;
+}
+
+/* 5번 파트 */
+.banner {
+  background-color: #f2f8fa;
+  padding: 0 15px;
+  padding-top: 65px;
+  padding-bottom: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.banner-img {
+  display: block;
+  height: 190px;
+  margin-bottom: 41px;
+}
+
+.banner-head {
+  display: block;
+  font-size: 32px;
+  line-height: 1;
+  font-weight: 700;
+  letter-spacing: -0.05em;
+  margin-bottom: 16px;
+}
+
+.banner-explain {
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.banner-form input {
+  border: none;
+  border-radius: 2px;
+  padding: 12px 16px;
+  width: 100%;
+  margin-bottom: 8px;
+}
+
+.banner-form input::placeholder {
+  font-size: 16px;
+  line-height: 1.5;
+  color: #7b7b7e;
+  letter-spacing: -0.01em;
+}
+
+.banner-form button {
+  background-color: #3040c4;
+  width: 100%;
+  color: white;
+  font-size: 15px;
+  line-height: 1.6;
+  font-weight: 700;
+  letter-spacing: -0.05em;
+  border: none;
+  border-radius: 2px;
+  padding: 12px 106px;
+  margin-bottom: 8px;
+}
+
+.banner-form-explain {
+  font-size: 13px;
+  line-height: 1.5384615385;
+  color: #7b7b7e;
+}
+
+.banner-form-explain a {
+  color: #2979ff;
+  text-decoration: underline;
+}
+
+/* footer 파트 */
+footer {
+  background-color: #e5e5e5;
+  padding: 24px 15px;
+}
+
+.footer-list {
+  color: #807f81;
+  text-transform: capitalize;
+}
+
+.footer-list li {
+  font-size: 14px;
+  line-height: 1.7142857143;
+  letter-spacing: -0.01em;
+  margin-bottom: 8px;
+}
+
+/* Desktop version */
+@media screen and (min-width: 768px) {
+  /* 1번 파트 */
+  .landing {
+    padding: 120px;
+  }
+
+  .landing-head-line {
+    font-size: 70px;
+    line-height: 1.0285714286;
+    margin-bottom: 32px;
+  }
+
+  .landing-text {
+    display: block;
+    width: 320px;
+    font-size: 22px;
+    line-height: 1.4545454545;
+    margin-bottom: 32px;
+  }
+
+  .landing-apply {
+    padding: 14px 38px;
+    font-size: 18px;
+    line-height: 1.5555555556;
+    margin-right: 16px;
+  }
+
+  .landing-learn {
+    padding: 14px 38px;
+    font-size: 18px;
+    line-height: 1.5555555556;
+  }
+
+  /* 2번 파트 */
+  .testimonials {
+    padding: 80px 255px;
+    flex-direction: row;
+    align-items: flex-start;
+  }
+
+  .testimonials div:first-child {
+    margin-right: 110px;
+  }
+
+  .part2-main {
+    font-size: 26px;
+    line-height: 1.3076923077;
+    letter-spacing: -0.04em;
+    margin-bottom: 16px;
+  }
+
+  .part2-text {
+    font-size: 22px;
+    line-height: 1.4545454545;
+    margin-bottom: 0;
+  }
+
+  /* 3번 파트 */
+  .program {
+    padding: 0 255px;
+    padding-top: 80px;
+    padding-bottom: 96px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .program-name {
+    font-size: 22px;
+    line-height: 1.0909090909;
+    margin-bottom: 16px;
+  }
+
+  .program-head {
+    font-size: 56px;
+    line-height: 1;
+    width: 466px;
+    text-align: center;
+    margin-bottom: 32px;
+  }
+
+  .program-explain {
+    font-size: 22px;
+    line-height: 1.4545454545;
+    width: 770px;
+    text-align: center;
+    margin-bottom: 72px;
+  }
+
+  .product-img-list {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .product-img {
+    width: 290px;
+    margin-right: 30px;
+    margin-bottom: 0;
+    font-size: 20px;
+    line-height: 1.4;
+    letter-spacing: -0.02em;
+  }
+
+  .product-img:last-child {
+    margin-right: 0;
+  }
+
+  .product-img:hover {
+    cursor: pointer;
+    background-color: #3141c5;
+    color: white;
+  }
+
+  .product-img img {
+    height: 195px;
+    margin-bottom: 24px;
+  }
+
+  /* 4번 파트 */
+  .curriculum {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 80px 255px;
+    padding-bottom: 96px;
+  }
+
+  .curriculum-main-room {
+    display: flex;
+  }
+
+  .curriculum-main-room div:first-child {
+    margin-right: 43px;
+    width: 450px;
+  }
+
+  .curriculum-main {
+    font-size: 22px;
+    line-height: 1.0909090909;
+    margin-bottom: 16px;
+  }
+
+  .curriculum-head {
+    font-size: 56px;
+    line-height: 1;
+    margin-bottom: 32px;
+  }
+
+  .curriculum-first-explain {
+    width: 100%;
+    line-height: 1.4545454545;
+    margin-bottom: 72px;
+  }
+
+  .curriculum-apply {
+    font-size: 18px;
+    line-height: 1.5555555556;
+    padding: 14px 34px;
+    width: 160px;
+  }
+
+  .curriculum-query-img {
+    width: 425px;
+    height: 426px;
+    background-image: url(./assets/img-curriculum.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+
+  .curriculum-add-room {
+    display: flex;
+  }
+
+  .curriculum-add-explain {
+    width: 450px;
+    font-size: 18px;
+    line-height: 1.4444444444;
+  }
+
+  .upper-curriculm {
+    margin-bottom: 0;
+    margin-right: 30px;
+  }
+
+  /* 5번 파트 */
+  .banner {
+    padding: 88px 255px;
+    display: flex;
+    flex-direction: row;
+  }
+
+  .banner-img {
+    margin-right: 113px;
+    width: 287px;
+    height: 285px;
+  }
+
+  .banner-head {
+    font-size: 40px;
+    margin-bottom: 16px;
+  }
+
+  .banner-explain {
+    font-size: 22px;
+    line-height: 1.4545454545;
+    text-align: left;
+    margin-bottom: 24px;
+  }
+
+  .banner-form {
+    display: flex;
+  }
+
+  .banner-form input {
+    width: 362px;
+    height: 56px;
+    padding: 16px;
+    margin-right: 8px;
+  }
+
+  .banner-form input::placeholder {
+    font-size: 18px;
+    line-height: 1.3333333333;
+  }
+
+  .banner-form button {
+    width: 160px;
+    height: 56px;
+    font-size: 18px;
+    line-height: 1.3333333333;
+    padding: 15px;
+    text-align: center;
+    margin-bottom: 4px;
+  }
+
+  .banner-form-explain {
+    font-size: 14px;
+    line-height: 1.7142857143;
+  }
+
+  /* footer 파트 */
+  footer {
+    padding: 16px 255px;
+  }
+
+  .footer-list {
+    display: flex;
+  }
+
+  .footer-list li {
+    margin-right: 16px;
+  }
+}
