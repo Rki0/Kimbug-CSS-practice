@@ -55,130 +55,132 @@ h1 {
   color: #2b292d;
 }
 
-/* >= 768px - Desktop에 적용될 공통 스타일*/
-@media screen and (min-width: 768px) {
-  /* Reset CSS */
-  p {
-    font-size: 22px;
-    line-height: 1.3636363636;
-  }
-}
-
-/* Custom Grid System - Fix container width */
-@media screen and (min-width: 1200px) {
-  .container {
-    max-width: 960px !important;
-  }
-}
-
-/* 작업 시작 */
-/* width 320px에서 시작 */
-/* 1번 파트 */
-.landing {
-  background-color: #fdded8;
-  padding: 154px 15px;
-  display: flex;
-  flex-direction: column;
+/* button은 보통 반복되는 경우가 많기 때문에 시안을 살펴본 뒤 공통적으로 쓰일 클래스에 정의하자 */
+.fill-button {
+  /* inline 성격을 가지는 flex */
+  display: inline-flex;
   justify-content: center;
   align-items: center;
-}
-
-.landing-head-line {
-  font-size: 40px;
-  line-height: 1;
-  font-weight: 700;
-  letter-spacing: -0.05em;
-  margin-bottom: 24px;
-  text-align: center;
-}
-
-.landing-text {
-  line-height: 1.375;
-  text-align: center;
-  margin-bottom: 24px;
-}
-
-.landing-a {
-  display: flex;
-  flex-wrap: nowrap;
-}
-
-.landing-apply {
-  padding: 12px 35px;
+  width: 140px;
+  height: 48px;
+  border: none;
   background-color: #3040c4;
   color: white;
   font-size: 15px;
   line-height: 1.6;
   font-weight: 700;
   letter-spacing: -0.05em;
-  margin-right: 8px;
+  border-radius: 2px;
+  transition: opacity 300ms ease-in-out;
 }
 
-.landing-learn {
-  padding: 12px 32px;
+.fill-button.inverted {
   color: #3040c4;
   background-color: white;
-  font-size: 15px;
-  line-height: 1.6;
-  font-weight: 700;
-  letter-spacing: -0.05em;
 }
 
-/* 2번 파트 */
-.testimonials {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  padding: 80px 15px;
-  background-color: #f4f5f7;
+.fill-button:hover {
+  opacity: 0.5;
 }
 
-.part2-main {
+.section {
+  padding: 80px 0;
+}
+
+.section-category {
   display: block;
-  font-size: 22px;
-  line-height: 1.3636363636;
-  font-weight: 700;
-  letter-spacing: -0.04em;
-  margin-bottom: 16px;
-}
-
-.part2-text {
-  margin-bottom: 40px;
-}
-
-/* 3번 파트 */
-.program {
-  padding: 80px 15px;
-  background-color: #e5e5e5;
-}
-
-.program-name {
-  color: #009b4d;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: -0.01em;
   text-transform: capitalize;
-  font-weight: 700;
   margin-bottom: 8px;
 }
 
-.program-head {
+.section-title {
   font-size: 34px;
   line-height: 1.0588235294;
-  font-weight: 700;
   letter-spacing: -0.03em;
+  color: #2b292d;
   margin-bottom: 24px;
 }
 
-.program-explain {
+/* landing */
+.landing {
+  background-color: #fdded8;
+  /* 요소 하나하나에 text-align: center;를 하기보다 부모 요소에 선언해서 일괄 적용 */
+  text-align: center;
+}
+
+.landing-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  height: 100vh;
+}
+
+.landing-title {
+  font-size: 40px;
+  line-height: 1;
+  font-weight: 700;
+  letter-spacing: -0.05em;
+  margin-bottom: 24px;
+}
+
+.landing-desc {
+  margin-bottom: 20px;
+}
+
+/* landing 안에 있는 button-group이라고 좀 더 명확하게 명시. button-group은 또 사용될 수 있으므로 */
+.landing .button-group {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.landing .button-group .fill-button:first-child {
+  margin-right: 8px;
+}
+
+/* service */
+.service {
+  background-color: #f4f5f7;
+  padding: 80px 0;
+}
+
+.service .col-12:first-child {
+  margin-bottom: 40px;
+}
+
+.service-title {
+  font-size: 22px;
+  line-height: 1.3636363636;
+  letter-spacing: -0.04em;
+  color: #2b292d;
+  margin-bottom: 16px;
+}
+
+/* program */
+.program .row:first-child {
   margin-bottom: 32px;
 }
 
-.product-img {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  height: 291px;
-  padding-top: 24px;
-  padding-bottom: 32px;
+.program .col-md-4 {
   margin-bottom: 20px;
+}
+
+.program .col-md-4:last-child {
+  margin-bottom: 0;
+}
+
+.program .section-category {
+  color: #009b4d;
+}
+
+.program-card {
+  display: block;
+  text-align: center;
+  padding: 24px 0 32px;
   background: linear-gradient(
       180deg,
       rgba(255, 255, 255, 0.05) 0%,
@@ -188,409 +190,324 @@ h1 {
   border-radius: 8px;
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1), 0px 4px 6px rgba(0, 0, 0, 0.05),
     inset 0px 1px 0px rgba(255, 255, 255, 0.1);
+  transition: background-color 300ms ease-in-out, box-shadow 300ms ease-in-out;
 }
 
-.product-img img {
+.program-card:hover {
+  background-color: #3141c5;
+  box-shadow: 0px 13px 18px rgba(0, 0, 0, 0.15),
+    0px 11px 55px rgba(0, 0, 0, 0.07);
+}
+
+.program-card:hover strong {
+  color: white;
+}
+
+.program-card img {
   display: block;
+  margin: 0 auto 16px;
+  width: auto;
   height: 195px;
-  margin-bottom: 16px;
 }
 
-/* 4번 파트 */
-.curriculum {
-  padding: 80px 15px;
+.program-card strong {
+  font-size: 18px;
+  line-height: 1.3333333333;
+  letter-spacing: -0.02em;
+  transition: color 400ms ease-in-out;
 }
 
-.curriculum-main {
-  font-weight: 700;
+/* curriculum */
+.curriculum .row:first-child {
+  margin-bottom: 48px;
+}
+
+.curriculum .section-category {
   color: #0189d1;
-  text-transform: capitalize;
-  margin-bottom: 8px;
 }
 
-.curriculum-head {
-  font-size: 34px;
-  line-height: 1.0588235294;
-  font-weight: 700;
-  letter-spacing: -0.03em;
-  margin-bottom: 24px;
-}
-
-.curriculum-first-explain {
+.curriculum .section-desc {
   margin-bottom: 32px;
 }
 
-.curriculum-apply {
-  display: block;
-  width: 140px;
-  padding: 12px 35px;
-  background-color: #3040c4;
-  color: white;
-  font-size: 15px;
-  line-height: 1.6;
-  font-weight: 700;
-  letter-spacing: -0.05em;
-  margin-bottom: 48px;
-  text-align: center;
+.curriculum-image {
+  display: none;
 }
 
-.curriculum-add-explain {
-  display: block;
-  font-size: 15px;
-  line-height: 1.5333333333;
-}
-
-.upper-curriculm {
+.curriculum .row:last-child .col-12:first-child {
   margin-bottom: 40px;
 }
 
-.curriculum-add-explain span {
-  font-weight: 700;
+.curriculum-detail-desc {
+  font-size: 15px;
+  line-height: 1.4666666667;
+  letter-spacing: -0.01em;
+  color: #2b292d;
 }
 
-/* 5번 파트 */
-.banner {
+/* subscription */
+.subscription {
   background-color: #f2f8fa;
-  padding: 0 15px;
-  padding-top: 65px;
-  padding-bottom: 40px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  text-align: center;
+  padding: 40px 0;
 }
 
-.banner-img {
+.subscription-image {
+  padding: 25px 0;
+}
+
+.subscription-image img {
   display: block;
+  width: auto;
   height: 190px;
-  margin-bottom: 41px;
+  margin: 0 auto;
 }
 
-.banner-head {
-  display: block;
+.subscription-title {
+  color: #2b292d;
   font-size: 32px;
   line-height: 1;
-  font-weight: 700;
   letter-spacing: -0.05em;
   margin-bottom: 16px;
 }
 
-.banner-explain {
-  text-align: center;
+.subscription-desc {
   margin-bottom: 24px;
 }
 
-.banner-form input {
-  border: none;
-  border-radius: 2px;
-  padding: 12px 16px;
-  width: 100%;
+.subscription .input-group {
   margin-bottom: 8px;
 }
 
-.banner-form input::placeholder {
-  font-size: 16px;
-  line-height: 1.5;
+.subscription .input-group input {
+  width: 100%;
+  height: 48px;
+  padding: 16px;
+  border: none;
+  border-radius: 2px;
+  background-color: white;
+  margin-bottom: 8px;
+}
+
+.subscription .input-group input::placeholder {
   color: #7b7b7e;
-  letter-spacing: -0.01em;
 }
 
-.banner-form button {
-  background-color: #3040c4;
+.subscription .input-group button {
   width: 100%;
-  color: white;
-  font-size: 15px;
-  line-height: 1.6;
-  font-weight: 700;
-  letter-spacing: -0.05em;
-  border: none;
-  border-radius: 2px;
-  padding: 12px 106px;
-  margin-bottom: 8px;
 }
 
-.banner-form-explain {
+.subscription-form .form-notice {
   font-size: 13px;
   line-height: 1.5384615385;
+  letter-spacing: 0;
   color: #7b7b7e;
 }
 
-.banner-form-explain a {
-  color: #2979ff;
+.subscription-form .form-notice a {
   text-decoration: underline;
+  color: #2979ff;
 }
 
-/* footer 파트 */
-footer {
-  background-color: #e5e5e5;
-  padding: 24px 15px;
+/* footer */
+.footer {
+  padding: 24px 0;
 }
 
-.footer-list {
-  color: #807f81;
-  text-transform: capitalize;
-}
-
-.footer-list li {
-  font-size: 14px;
-  line-height: 1.7142857143;
-  letter-spacing: -0.01em;
+footer .footer-link {
   margin-bottom: 8px;
 }
 
-/* Desktop version */
+footer .footer-link:last-child {
+  margin-bottom: 0;
+}
+
+footer .footer-link a {
+  font-size: 14px;
+  line-height: 1.7142857143;
+  color: #807f81;
+}
+
+/* >= 768px - Desktop에 적용될 공통 스타일*/
 @media screen and (min-width: 768px) {
-  /* 1번 파트 */
-  .landing {
-    padding: 120px;
+  /* Reset CSS */
+  p {
+    font-size: 22px;
+    line-height: 1.3636363636;
   }
 
-  .landing-head-line {
+  .fill-button {
+    width: 160px;
+    height: 56px;
+    font-size: 18px;
+    line-height: 1.5555555556;
+  }
+
+  .landing .button-group .fill-button:first-child {
+    margin-right: 16px;
+  }
+
+  .section {
+    padding-bottom: 96px;
+  }
+
+  .section-category {
+    font-size: 22px;
+    line-height: 1.0909090909;
+    margin-bottom: 16px;
+  }
+
+  .section-title {
+    font-size: 56px;
+    line-height: 1;
+    margin-bottom: 32px;
+  }
+
+  /* landing */
+  .landing-content {
+    /* 이미 정의한 내용을 없애고 싶을 때 auto를 많이 씀 */
+    height: auto;
+    padding: 120px 0;
+  }
+
+  .landing-title {
     font-size: 70px;
     line-height: 1.0285714286;
     margin-bottom: 32px;
   }
 
-  .landing-text {
-    display: block;
-    width: 320px;
-    font-size: 22px;
-    line-height: 1.4545454545;
+  .landing-desc {
     margin-bottom: 32px;
   }
 
-  .landing-apply {
-    padding: 14px 38px;
-    font-size: 18px;
-    line-height: 1.5555555556;
-    margin-right: 16px;
+  /* service */
+  .service .col-12:first-child {
+    margin-bottom: 0;
   }
 
-  .landing-learn {
-    padding: 14px 38px;
-    font-size: 18px;
-    line-height: 1.5555555556;
-  }
-
-  /* 2번 파트 */
-  .testimonials {
-    padding: 80px 255px;
-    flex-direction: row;
-    align-items: flex-start;
-  }
-
-  .testimonials div:first-child {
-    margin-right: 110px;
-  }
-
-  .part2-main {
+  .service-title {
     font-size: 26px;
     line-height: 1.3076923077;
     letter-spacing: -0.04em;
-    margin-bottom: 16px;
   }
 
-  .part2-text {
-    font-size: 22px;
-    line-height: 1.4545454545;
-    margin-bottom: 0;
-  }
-
-  /* 3번 파트 */
+  /* program */
   .program {
-    padding: 0 255px;
-    padding-top: 80px;
-    padding-bottom: 96px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .program-name {
-    font-size: 22px;
-    line-height: 1.0909090909;
-    margin-bottom: 16px;
-  }
-
-  .program-head {
-    font-size: 56px;
-    line-height: 1;
-    width: 466px;
     text-align: center;
-    margin-bottom: 32px;
   }
 
-  .program-explain {
-    font-size: 22px;
-    line-height: 1.4545454545;
-    width: 770px;
-    text-align: center;
+  .program .row:first-child {
     margin-bottom: 72px;
   }
 
-  .product-img-list {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-  }
-
-  .product-img {
-    width: 290px;
-    margin-right: 30px;
-    margin-bottom: 0;
-    font-size: 20px;
-    line-height: 1.4;
-    letter-spacing: -0.02em;
-  }
-
-  .product-img:last-child {
-    margin-right: 0;
-  }
-
-  .product-img:hover {
-    cursor: pointer;
-    background-color: #3141c5;
-    color: white;
-  }
-
-  .product-img img {
-    height: 195px;
+  .program-card img {
     margin-bottom: 24px;
   }
 
-  /* 4번 파트 */
-  .curriculum {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 80px 255px;
-    padding-bottom: 96px;
+  .program-card strong {
+    font-size: 20px;
+    line-height: 1.2;
   }
 
-  .curriculum-main-room {
-    display: flex;
+  /* curriculum */
+  .curriculum .row:first-child {
+    margin-bottom: 24px;
   }
 
-  .curriculum-main-room div:first-child {
-    margin-right: 43px;
-    width: 450px;
+  .curriculum .row:last-child .col-12:first-child {
+    margin-bottom: 0;
   }
 
-  .curriculum-main {
-    font-size: 22px;
-    line-height: 1.0909090909;
-    margin-bottom: 16px;
-  }
-
-  .curriculum-head {
-    font-size: 56px;
-    line-height: 1;
-    margin-bottom: 32px;
-  }
-
-  .curriculum-first-explain {
-    width: 100%;
-    line-height: 1.4545454545;
+  .curriculum .section-desc {
     margin-bottom: 72px;
   }
 
-  .curriculum-apply {
-    font-size: 18px;
-    line-height: 1.5555555556;
-    padding: 14px 34px;
-    width: 160px;
+  .curriculum-image {
+    display: block;
   }
 
-  .curriculum-query-img {
-    width: 425px;
-    height: 426px;
-    background-image: url(./assets/img-curriculum.png);
-    background-repeat: no-repeat;
-    background-size: contain;
+  .curriculum-image img {
+    display: block;
+    width: 100%;
+    max-width: 425px;
+    height: auto;
   }
 
-  .curriculum-add-room {
-    display: flex;
-  }
-
-  .curriculum-add-explain {
-    width: 450px;
+  .curriculum-detail-desc {
     font-size: 18px;
     line-height: 1.4444444444;
   }
 
-  .upper-curriculm {
-    margin-bottom: 0;
-    margin-right: 30px;
-  }
-
-  /* 5번 파트 */
-  .banner {
-    padding: 88px 255px;
-    display: flex;
-    flex-direction: row;
-  }
-
-  .banner-img {
-    margin-right: 113px;
-    width: 287px;
-    height: 285px;
-  }
-
-  .banner-head {
-    font-size: 40px;
-    margin-bottom: 16px;
-  }
-
-  .banner-explain {
-    font-size: 22px;
-    line-height: 1.4545454545;
+  /* subscription */
+  .subscription {
     text-align: left;
-    margin-bottom: 24px;
+    padding: 80px 0;
   }
 
-  .banner-form {
+  .subscription-image {
+    padding: 8px 0;
+  }
+
+  .subscription-image img {
+    height: 285px;
+    margin-left: 0;
+  }
+
+  .subscription-title {
+    font-size: 40px;
+  }
+
+  .subscription .input-group {
     display: flex;
-  }
-
-  .banner-form input {
-    width: 362px;
-    height: 56px;
-    padding: 16px;
-    margin-right: 8px;
-  }
-
-  .banner-form input::placeholder {
-    font-size: 18px;
-    line-height: 1.3333333333;
-  }
-
-  .banner-form button {
-    width: 160px;
-    height: 56px;
-    font-size: 18px;
-    line-height: 1.3333333333;
-    padding: 15px;
-    text-align: center;
+    align-items: center;
     margin-bottom: 4px;
   }
 
-  .banner-form-explain {
+  .subscription .input-group input {
+    height: 56px;
+    font-size: 18px;
+    line-height: 1.3333333333;
+    margin-bottom: 0;
+    margin-right: 8px;
+  }
+
+  /* 다른 .fill-button에 비해서 얘만 유난히 width가 먹질 않는다 */
+  /* 위에서 flex를 선언한 것 때문에 no-wrap이 적용되서 지들끼리 크기 자동 조절을 해버린 것 */
+  /* button의 크기는 어떻게든 사수하겠다 할 때 flex-shrink를 사용 */
+  /* flex-grow와 정반대의 개념인 flex-shrink */
+  /* 0값을 주면 false와 같아서, 절대 자기 사이즈보다 작아지면 안됨을 의미 */
+  .subscription .input-group .fill-button {
+    width: 160px;
+    flex-shrink: 0;
+  }
+
+  .subscription .form-notice {
     font-size: 14px;
     line-height: 1.7142857143;
   }
 
-  /* footer 파트 */
-  footer {
-    padding: 16px 255px;
+  /* footer */
+  .footer {
+    padding: 16px 0;
   }
 
-  .footer-list {
+  .footer .footer-links {
     display: flex;
   }
 
-  .footer-list li {
+  .footer .footer-link {
+    margin-bottom: 0;
     margin-right: 16px;
+  }
+
+  .footer .footer-link:last-child {
+    margin-right: 0;
+  }
+}
+
+/* Custom Grid System - Fix container width */
+@media screen and (min-width: 1200px) {
+  .container {
+    max-width: 960px !important;
   }
 }
